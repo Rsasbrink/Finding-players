@@ -63,7 +63,6 @@ public class HighScorePlayerFinderTest {
     @Test
     public final void thePottersArePresent() {
         List<Player> potters = highscores.findPlayer(null, "Potter");
-
         assertEquals(3, potters.size());
         assertTrue(potters.contains(harry));
         assertTrue(potters.contains(james));
