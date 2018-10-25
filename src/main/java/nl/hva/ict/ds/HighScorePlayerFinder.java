@@ -10,17 +10,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Experimental class to investigate the use of different collision resolution strategies.
- * This class acts as a central accesspoint to three different collision resolution
- * strategies in such a way the user of this class doesn't have to worry about the
- * different strategies. This class is used by the JUnit tests.
+ * Experimental class to investigate the use of different collision resolution
+ * strategies. This class acts as a central accesspoint to three different
+ * collision resolution strategies in such a way the user of this class doesn't
+ * have to worry about the different strategies. This class is used by the JUnit
+ * tests.
  *
- * This class should not contain any errors, if you find one or think there is something
- * wrong with this class please contact the author.
+ * This class should not contain any errors, if you find one or think there is
+ * something wrong with this class please contact the author.
  *
  * @author Nico Tromp, n.j.tromp@hva.nl
  */
 public class HighScorePlayerFinder implements HighScoreList {
+
     private MultiValueSymbolTable<String, Player> firstNameFinder;
     private MultiValueSymbolTable<String, Player> lastNameFinder;
     private MultiValueSymbolTable<String, Player> fullNameFinder;
@@ -36,6 +38,13 @@ public class HighScorePlayerFinder implements HighScoreList {
         firstNameFinder.put(player.getFirstName(), player);
         lastNameFinder.put(player.getLastName(), player);
         fullNameFinder.put(player.getFirstName() + player.getLastName(), player);
+    }
+
+    @Override
+    public void printCollisions() {
+        System.out.println("Linear probing collissions: " + firstNameFinder.collissions());
+        System.out.println("quadratic probing collissions: " + lastNameFinder.collissions());
+        System.out.println("Double hashing collissions: " + fullNameFinder.collissions());
     }
 
     @Override

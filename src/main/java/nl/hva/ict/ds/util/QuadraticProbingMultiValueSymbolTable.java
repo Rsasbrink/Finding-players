@@ -32,12 +32,12 @@ public class QuadraticProbingMultiValueSymbolTable implements MultiValueSymbolTa
         int hashValue = hash(key);
         int j = 1;
         while (vals[hashValue] != null) {
-            hashValue = j * j++ % size;
+            this.collisions++;
+            hashValue = (j * (j++)) % size;
         }
 
         keys[hashValue] = key;
         vals[hashValue] = val;
-        //printHashTable();
 
     }
 
@@ -62,5 +62,10 @@ public class QuadraticProbingMultiValueSymbolTable implements MultiValueSymbolTa
             }
         }
         System.out.println();
+    }
+
+    @Override
+    public int collissions() {
+        return this.collisions;
     }
 }

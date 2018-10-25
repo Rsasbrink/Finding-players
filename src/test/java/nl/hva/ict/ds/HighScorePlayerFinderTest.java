@@ -63,9 +63,7 @@ public class HighScorePlayerFinderTest {
     @Test
     public final void thePottersArePresent() {
         List<Player> potters = highscores.findPlayer(null, "Potter");
-        for (Player player : potters){
-            System.out.println(player.getFirstName() + " " + player.getLastName());
-        }
+       
         assertEquals(3, potters.size());
         assertTrue(potters.contains(harry));
         assertTrue(potters.contains(james));
@@ -85,12 +83,13 @@ public class HighScorePlayerFinderTest {
         String [] firstNames = new NameReader("/firstnames.txt").getNames();
         String [] lastNames = new NameReader("/lastnames.txt").getNames();
 
-//        highscores = new HighScorePlayerFinder(15401); // Please adjust this size!
+        highscores = new HighScorePlayerFinder(10501); // Please adjust this size!
         for (int i = 0; i < 10000; i++) {
             String firstName = firstNames[randomizer.nextInt(firstNames.length)];
             String lastName = lastNames[randomizer.nextInt(lastNames.length)];
             highscores.add(new Player(firstName, lastName, randomizer.nextInt(1000)));
         }
+        highscores.printCollisions();
     }
 
 }
