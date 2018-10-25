@@ -31,9 +31,13 @@ public class QuadraticProbingMultiValueSymbolTable implements MultiValueSymbolTa
     public void put(String key, Player val) {
         int hashValue = hash(key);
         int j = 1;
-        while (vals[hashValue] != null) {
+        while (keys[hashValue] != null) {
             this.collisions++;
             hashValue = (j * (j++)) % size;
+            if (hashValue < 0 || hashValue > size) {
+                hashValue = hash(key);
+            }
+          
         }
 
         keys[hashValue] = key;
