@@ -28,7 +28,6 @@ public class DoubleHashingMultiValueSymbolTable implements MultiValueSymbolTable
 
     @Override
     public void put(String key, Player value) {
-        System.out.println("DoubleHash");
         int hashValue = hash(key);
         int stepSize = hashPrime(key);
         
@@ -38,7 +37,7 @@ public class DoubleHashingMultiValueSymbolTable implements MultiValueSymbolTable
         }
         keys[hashValue] = key;
         vals[hashValue] = value;
-        System.out.println("Key: " + key +  " Value: " + vals[hashValue].getFirstName() + ' ' + vals[hashValue].getLastName());
+        //System.out.println("Key: " + key +  " Value: " + vals[hashValue].getFirstName() + ' ' + vals[hashValue].getLastName());
     }
 
     @Override
