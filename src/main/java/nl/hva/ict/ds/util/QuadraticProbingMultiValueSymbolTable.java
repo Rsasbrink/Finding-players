@@ -23,37 +23,32 @@ public class QuadraticProbingMultiValueSymbolTable implements MultiValueSymbolTa
         return collisions;
     }
 
-    private int hash(String key) {
-        return (key.hashCode() & 0x7fffffff) % size;
+    private int hash(String string) {
+        return (string.hashCode() & 0x7fffffff) % size;
     }
 
+    @Override
     public void put(String key, Player val) {
-        int i;
+        int hashValue = hash(key);
         int j = 1;
-        for (i = hash(key); keys[i] != null​; i = j * j++ % size) {
-             if​ (keys[i].equals(key)) {
-                vals[i] = val;
-                printHashTable();
-
-                return;
-            }
+        while (vals[hashValue] != null) {
+            hashValue = j * j++ % size;
         }
-        keys[i] = key;
-        vals[i] = val;
-        printHashTable();
+
+        keys[hashValue] = key;
+        vals[hashValue] = val;
+        //printHashTable();
 
     }
 
     @Override
     public List<Player> get(String key) {
         List<Player> players = new ArrayList<>();
-        int i = hash(key), h = 1;
-        while (keys[i] != null) {
-            if (keys[i].equals(key)) {
+        int j = 1;
+        for (int i = hash(key); vals[i] != null​; i = j * j++ % size) {
+             if​ (keys[i].equals(key)) {
                 players.add(vals[i]);
             }
-            i = (i + h * h++) % size;
-
         }
 
         return players;
@@ -63,7 +58,7 @@ public class QuadraticProbingMultiValueSymbolTable implements MultiValueSymbolTa
         System.out.println("\nHash Table: ");
         for (int i = 0; i < size; i++) {
             if (keys[i] != null) {
-                System.out.println(keys[i] + i + " " + vals[i].getFirstName());
+                System.out.println(i + ": " + keys[i] + " " + vals[i].getFirstName());
             }
         }
         System.out.println();
