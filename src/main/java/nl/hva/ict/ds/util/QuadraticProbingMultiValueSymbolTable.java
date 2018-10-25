@@ -37,7 +37,7 @@ public class QuadraticProbingMultiValueSymbolTable implements MultiValueSymbolTa
             if (hashValue < 0 || hashValue > size) {
                 hashValue = hash(key);
             }
-          
+
         }
 
         keys[hashValue] = key;
@@ -49,10 +49,14 @@ public class QuadraticProbingMultiValueSymbolTable implements MultiValueSymbolTa
     public List<Player> get(String key) {
         List<Player> players = new ArrayList<>();
         int j = 1;
-        for (int i = hash(key); vals[i] != null​; i = j * j++ % size) {
+        int i = hash(key);
+        while (i > 0 && i < size) {
              if​ (keys[i].equals(key)) {
-                players.add(vals[i]);
+                if (!players.contains(vals[i])) {
+                    players.add(vals[i]);
+                }
             }
+            i = j * j++ % size;
         }
 
         return players;

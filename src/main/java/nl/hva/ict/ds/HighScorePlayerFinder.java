@@ -41,13 +41,6 @@ public class HighScorePlayerFinder implements HighScoreList {
     }
 
     @Override
-    public void printCollisions() {
-        System.out.println("Linear probing collissions: " + firstNameFinder.collissions());
-        System.out.println("quadratic probing collissions: " + lastNameFinder.collissions());
-        System.out.println("Double hashing collissions: " + fullNameFinder.collissions());
-    }
-
-    @Override
     public List<Player> findPlayer(String firstName, String lastName) throws IllegalArgumentException {
         List<Player> players = new ArrayList<>();
         if (StringUtils.isNotBlank(firstName) && StringUtils.isNotBlank(lastName)) {
@@ -64,6 +57,14 @@ public class HighScorePlayerFinder implements HighScoreList {
     public List<Player> getHighScores(int numberOfHighScores) {
         // No need to implement this method.
         return null;
+    }
+
+    @Override
+    public void printCollisions(int amount, int size) {
+        System.out.println("Results " + amount + " inserts on a list of " + size);
+        System.out.println("Linear probing collissions: " + firstNameFinder.collissions());
+        System.out.println("quadratic probing collissions: " + lastNameFinder.collissions());
+        System.out.println("Double hashing collissions: " + fullNameFinder.collissions());
     }
 
 }

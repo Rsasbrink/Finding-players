@@ -36,5 +36,5 @@ public interface HighScoreList {
      */
     List<Player> findPlayer(String firstName, String lastName) throws IllegalArgumentException;
     
-    void printCollisions();
+    void printCollisions(int amount, int size);
 }
