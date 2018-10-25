@@ -19,7 +19,7 @@ public class LinearProbingMultiValueSymbolTable implements MultiValueSymbolTable
     
     
     private​ int​ hash(String string) {
-        return​ string.hashCode() % size;
+         return (string.hashCode() & 0x7fffffff) % size;
     }
 
     @Override
