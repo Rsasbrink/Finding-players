@@ -32,7 +32,7 @@ public class ExtendedPlayerFinderTest extends HighScorePlayerFinderTest {
     }
 
     @Test
-    public void collisionsShouldHappen() {
+    public void ImprovedcollisionsShouldHappen() {
         String[] firstNames = new NameReader("/firstnames.txt").getNames();
         String[] lastNames = new NameReader("/lastnames.txt").getNames();
 
@@ -48,7 +48,6 @@ public class ExtendedPlayerFinderTest extends HighScorePlayerFinderTest {
             highscores.printCollisions(amount, size);
             System.out.println("");
         }
-
     }
 
 }
