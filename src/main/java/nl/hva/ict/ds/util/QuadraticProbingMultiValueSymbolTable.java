@@ -74,7 +74,7 @@ public class QuadraticProbingMultiValueSymbolTable implements MultiValueSymbolTa
     }
 
     @Override
-    public int collissions() {
+    public int collisions() {
         return this.collisions;
     }
 }

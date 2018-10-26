@@ -32,7 +32,7 @@ public interface MultiValueSymbolTable<K, V> {
     /**
      * Returns the amount of collisions
      *
-     * @return the amount of measured collissions
+     * @return the amount of measured collisions
      */
-    int collissions();
+    int collisions();
 }

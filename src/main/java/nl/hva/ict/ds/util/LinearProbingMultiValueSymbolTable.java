@@ -53,7 +53,7 @@ public class LinearProbingMultiValueSymbolTable implements MultiValueSymbolTable
     }
 
     @Override
-    public int collissions() {
+    public int collisions() {
         return this.collisions;
     }
 }

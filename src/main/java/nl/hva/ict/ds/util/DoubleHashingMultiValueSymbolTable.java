@@ -59,7 +59,7 @@ public class DoubleHashingMultiValueSymbolTable implements MultiValueSymbolTable
     }
 
     @Override
-    public int collissions() {
+    public int collisions() {
         return this.collissions;
     }
 }
