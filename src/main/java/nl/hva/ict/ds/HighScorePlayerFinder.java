@@ -62,9 +62,9 @@ public class HighScorePlayerFinder implements HighScoreList {
     @Override
     public void printCollisions(int amount, int size) {
         System.out.println("Results " + amount + " inserts on a list of " + size);
-        System.out.println("Linear probing collissions: " + firstNameFinder.collisions());
-        System.out.println("quadratic probing collissions: " + lastNameFinder.collisions());
-        System.out.println("Double hashing collissions: " + fullNameFinder.collisions());
+        System.out.println("Linear probing collisions: " + firstNameFinder.collisions());
+        System.out.println("quadratic probing collisions: " + lastNameFinder.collisions());
+        System.out.println("Double hashing collisions: " + fullNameFinder.collisions());
     }
 
 }
